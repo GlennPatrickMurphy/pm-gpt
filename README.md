@@ -6,7 +6,7 @@ A PM tool chrome extension powered by ChatGPT
 
 - On any webpage, select the text to be run through ChatGPT.
 - Add, edit text and generate a response from chatgpt
-- copy chatgpt response to clipboard
+- Copy chatgpt response to clipboard
 - Click on the extension button in your toolbar and wait for the result to load.
 
 ## Installation
@@ -28,12 +28,10 @@ The extension will now be visible in the extensions panel in the toolbar; it can
 ## Troubleshooting
 
 - Using the extension requires having created an account on [ChatGPT](https://chat.openai.com). Once in a while, the extension will redirect to that page to pass the cloudflare check.
-- If you are using brave browser, be sure to uncheck "Prevent sites from fingerprinting me based on my language preferences" in `brave://settings/shields`
-  
 
 - Since the extension gets the response as a readable stream, it shouldn't take too long to load. If it does so, simply close the popup and run it again.
 
 ## References
 
 - <https://github.com/wong2/chat-gpt-google-extension>
-- <https://github.com/mihiraggarwal/select-gpt.git>
+- Cloned from <https://github.com/mihiraggarwal/select-gpt.git>
