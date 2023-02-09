@@ -1,10 +1,13 @@
 {
     "manifest_version": 3,
-    "name": "select-gpt",
+    "name": "PM-gpt",
     "description": "A chrome extension that lets you select any text and run it through ChatGPT",
     "version": "1.0.0",
     "host_permissions": ["https://*.openai.com/"],
-    "permissions": ["storage", "tabs"],
+    "permissions": ["storage", 
+        "tabs",
+        "contextMenus"
+      ],
     "icons": {
         "512": "assets/icons/hexagonal.png"
     },
@@ -19,5 +22,13 @@
             "matches": ["http://*/*", "https://*/*"],
             "js": ["contentScript.js"]
         }
-    ]
+    ],
+    "commands": {
+        "_execute_action": {
+          "suggested_key": {
+            "default": "Ctrl+U",
+            "mac": "Command+U"
+          }
+        }
+      }
 }

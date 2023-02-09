@@ -6,11 +6,13 @@
 body {
     background-color: #353441;
     font-family: proxima-nova;
-    width:400px;
-    height:400px;
+    width: 400px;
+    height: 400px;
 }
 
-h1 {
+h1,
+h2,
+h3 {
     color: #fff
 }
 
@@ -19,7 +21,7 @@ h1 {
     resize: none;
     background-color: #454754;
     color: #D1D5CA;
-    font-size: 3.75vh;
+    font-size: 2.75vh;
     width: 94vw;
     border: 0px;
     border-radius: 2px;
@@ -37,11 +39,11 @@ h1 {
 }
 
 #input {
-    height: 60px
+    height: 50px
 }
 
 #output {
-    height: 270px;
+    height: 250px;
 }
 
 a {
@@ -51,4 +53,76 @@ a {
 
 a:hover {
     cursor: pointer;
+}
+
+.container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    font-size: 2.75vh;
+    width: 100%;
+
+}
+
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top:1vh;
+    padding-bottom:1vh;
+}
+
+input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+input[type=checkbox]:checked+label:after {
+    transform: scale(4.2);
+}
+
+label {
+    outline: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #000;
+    font-family: "Lato", sans-serif;
+    font-size: 2vh;
+    padding: 1.5vh 3vh;
+    cursor: pointer;
+    border-radius: 1vh;
+    border: 0.3vh solid #73778c;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 3px 0 0 #25262d;
+}
+
+label::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: scale(0);
+    transition: transform 0.3s ease-in;
+    mix-blend-mode: difference;
+    background: radial-gradient(circle at center, #fff 24%, #73778c 25%, #000 100%);
+}
+
+label:active {
+    top: 3px;
+    box-shadow: none;
 }

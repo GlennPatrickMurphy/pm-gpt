@@ -46,20 +46,43 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 
+    var checkPageButton = document.getElementById('cb1');
+    checkPageButton.addEventListener('click', function() {  
+        const port = chrome.runtime.connect();
+        let selection = document.getElementById('input').innerHTML
+        port.postMessage({question: selection})
+        port.onMessage.addListener((msg) => showPopup(msg))
+    }, false);
+
     const getData = async (selection) => {
         if (!selection.length == 0) {
             document.getElementById('input').style.opacity = 1
             document.getElementById('input').innerHTML = selection
             document.getElementById('output').style.opacity = 0.5
             document.getElementById('output').innerHTML = "Loading..."
-            const port = chrome.runtime.connect();
-            port.postMessage({question: selection})
-            port.onMessage.addListener((msg) => showPopup(msg))
         } else {
             document.getElementById('input').style.opacity = 0.5
             document.getElementById('input').innerHTML = "You have to first select some text"
         }
     }
+
+    var copyResponse = document.getElementById('cb4');
+    copyResponse.addEventListener('click', function() {  
+        console.log("clicked")
+        let copyFrom = document.getElementById("output").innerText;
+
+        var myTemporaryInputElement = document.createElement("input");
+        myTemporaryInputElement.type = "text";
+        myTemporaryInputElement.value = copyFrom;
+
+        document.body.appendChild(myTemporaryInputElement);
+
+        myTemporaryInputElement.select();
+        document.execCommand("Copy");
+
+        document.body.removeChild(myTemporaryInputElement);
+      
+    })
 
     const getSelectedText = async () => {
         const activeTab = await getActiveTab()
@@ -67,4 +90,21 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     getSelectedText()
+
+    const barOuter = document.querySelector(".bar-outer");
+    const options = document.querySelectorAll(".bar-grey .option");
+    let current = 1;
+    options.forEach((option, i) => (option.index = i + 1));
+    options.forEach(option =>
+                    option.addEventListener("click", function() {
+    barOuter.className = "bar-outer";
+    barOuter.classList.add(`pos${option.index}`);
+    if (option.index > current) {
+        barOuter.classList.add("right");
+    } else if (option.index < current) {
+        barOuter.classList.add("left");
+    }
+    current = option.index;
+    }));
 })
+

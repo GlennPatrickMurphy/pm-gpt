@@ -4,15 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>select-gpt</title>
+    <title>pm-gpt</title>
 
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1>select-gpt</h1>
-    <div class="editable" contenteditable="false" id="input" placeholder="Loading..."></div><br/>
+    <h1>pm-gpt</h1>
+    <h3>input</h3>
+    <div class="editable" contenteditable="true" id="input" placeholder="Loading..."></div><br/>
+    <div class="container">
+            <input type="checkbox" id="cb1" /><label for="cb1">generate</label> 
+    </div>
+    <h3>output</h3>
     <div class="editable" contenteditable="false" id="output"></div>
-
+    <div class="container">
+        <input type="checkbox" id="cb4" /><label for="cb4">copy</label> 
+        <br></br>
+    </div>
     <script src="./popup.js"></script>
 </body>
 </html>

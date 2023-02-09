@@ -101,3 +101,15 @@ chrome.runtime.onConnect.addListener((port) => {
         }).catch((e) => port.postMessage(e))
     })
 })
+
+
+
+chrome.contextMenus.removeAll(function() {
+    chrome.contextMenus.create({
+     id: "1",
+     title: "Generate Requirements",
+     contexts:["selection"],  // ContextType
+    }); })
+
+chrome.contextMenus.onClicked.addListener(getResponse);
+
